@@ -1,0 +1,110 @@
+Ref: https://www.hoendervangers.org/courses/salesforce-python-fundamentals/
+
+Chapter 1: Installation
+
+https://www.hoendervangers.org/courses/salesforce-python-fundamentals/installation/
+
+python3 --version
+pip3 install notebook
+pip3 install jupyter
+
+Jupyter - The right answer is Julia, Python and R. It is also a homage to Galileos notebooks recording the discovery of the moons of Jupiter. Project Jupyter has developed and supported the interactive computing products Jupyter Notebook, JupyterHub, and JupyterLab.
+
+Chapter 2: Data types
+
+https://www.hoendervangers.org/courses/salesforce-python-fundamentals/data-types/
+
+- combine int + float works
+- cannot combine a string and int, operands matter
+- division always result in a float [python3 and above]
+
+Chapter 3: Strings
+
+https://www.hoendervangers.org/courses/salesforce-python-fundamentals/strings/
+
+- use \n for a newline character
+- use \ as an escape for a special character
+- Slicing [x:y] means start from x and up to y [but not including y]
+- string formatting
+    - use .format()
+    - use f-strings {}
+    - use +
+- Note:
+You can use the curly braces {} in combination with the .format() method to "place" the variables in the sentence. It is possible to add multiple variables. When the number of variables is large, this becomes more difficult to read. Therefore in Python 3.6, "f-strings" was introduced. With f-strings, it is no longer necessary to use the .format() method. You only need to put a "f" in front of the string. By referring to the variables by name, the code becomes way more readable. If you are interested in reading more about it, there is a nice article on Real Python.
+e.g.
+    - print("Today I am learning about " + topic + " in " +  language + ".")
+    - print("Today I am learning about {} in {}.".format(topic,language))
+    - print(f"Today I am learning about {topic} in {language}.")
+
+String methods:https://docs.python.org/3/library/stdtypes.html#string-methods
+
+Chapter 4: Lists
+
+https://docs.python.org/3/tutorial/datastructures.html?highlight=lists#more-on-lists
+https://www.hoendervangers.org/courses/salesforce-python-fundamentals/lists/
+
+Chapter 5: Dictionaries
+
+https://www.hoendervangers.org/courses/salesforce-python-fundamentals/dictionaries/
+
+key:value pairs
+
+Chapter 5: Operators
+
+Notice that 0 and empty lists or dictionaries evaluate to False. So the most important ones that are falsy to remember are:
+
+0
+0.0
+None
+False
+[] # an empty list
+{} # an empty dict
+() # an empty tuple
+'' # an empty str
+Chapter 8 - Loops
+
+Styling - https://pep8.org
+
+Chapter 9 - List comprehension
+
+Chapter - API
+
+Among valid HTTP methods are:
+- GET
+- POST
+- PUT
+- DELETE
+
+The status codes indicate:
+200 = Success
+3xx = Redirection
+4xx = Client Error
+5xx = Server Error
+
+There’s also a builtin JSON decoder, in case you’re dealing with JSON data:
+
+>>> import requests
+>>> r = requests.get('https://api.github.com/events')
+>>> r.json()
+
+Chapter - Date & Time
+
+So the functions first argument is the datetime as a string and the second argument is the format. The formatting language is something you might need to study a little bit. It is explained at:
+https://docs.python.org/3.7/library/datetime.html#strftime-strptime-behavior
+For now, the most important formats are:
+- %Y stands for year
+- %d stands for day
+- %m stands for month
+- %H stands for hour
+- %M stands for minute
+- %S stands for second
+
+The date is by default printed as: yyyy-mm-dd
+
+You can use timedelta to calculate with datetime and date objects.
+
+Chapter - Exception handling
+
+InvalidOperatorError is not a built-in standard error...
+
+Correct, you can have multiple except statements. It is actually good practice to use multiple except statements, so you can handle each exception appropriately.

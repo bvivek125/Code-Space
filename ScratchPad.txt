@@ -1,0 +1,77 @@
+Interpreter shell vs Program
+- Variable is evaluated in the IDE vs using printf function to evaluate in the script.
+- use PEP style 8 as a standard for writing the script
+- Naming conventions: use lowercase and _ for separating the words
+- #!/usr/bin/env python to make the program as an executable
+    - python x.py vs ./x.py
+
+
+IPython is enhanced interactive python
+- python -m pip install ipython
+- useful for importing libraries and auto-completing the functions
+- useful for looking into the history & writing scripts with help
+
+To write code compatible with python2 and python3
+- use 'from __future__ import print_function' at the top of program
+- use try & except method to make it compatible
+
+Dir, Help, and variables
+- use dir() to give you a list of strings or more attributes available to use
+- use help() for help on built-in function and attributes
+- use id() to get the memory location
+
+Strings:
+
+- python2, string is represented in the form of 'ascii'.
+    - Simplistic version of string inside the english language
+    - Ascii characters of 8 bits in length with 256 options.
+    - To help represent the larger set, use unicode
+    - for python2 to represent string in unicode, use u''
+- python3, by default string is represented in unicode
+    - To convert unicode to ascii, use b'' to represent them in bytes
+- For code compatible with python2 and python3
+    - use from __future__ import print_function,unicode_literals
+- use r'' as a raw string to avoid special characters (\n,\t) in python
+- use ''' or """ to span multiple lines of string
+- use repr() for internal representation of the string to Python
+- use .strip() to remove the leading and trailing whitespace
+    - use .lstrip() or .rstrip() to strip the whitespace on left and right side
+- use .split(x) to divide the string into chunks at a point x
+    - if x is not mentioned, it takes whitespace as a delimiter
+    - .split("\n") to split on new lines
+- use special formatting techniques for banners and presentations
+    - print("{}"".format(x))
+    - print("{:20}".format(x)) for 20 character space column width
+    - print("{:<20}".format(x)) for space to the left
+    - print("{:>20}".format(x)) for space to the right
+    - print("{:^20}".format(x)) to align to the center
+    - use named arguments when passing to the printf function
+    - use .format(*x) if x is a list, so a sequence of elements of x can be passed individually
+    - use f"{} for special formatting
+- round(x,y)
+    - round the value to x to y decimal places
+- increment (+=) & decrement (-=)
+
+Files:
+
+- Read a file
+    - f = open("file.txt")
+        - output = f.read()
+    - read by line
+        - f.readline()
+        - f.readlines() will read all the lines of the file in the form of a 'list'
+- Close a file
+    - f.close()
+- Use seek() operation to go to beginning of a file
+    - f.seek(0)
+- With context manager, it will automatically close the file
+    - with open() as f:
+        output = f.read()
+- Write to a file
+    - f = open("file.txt", mode='w')
+    - f.write()
+- Append to a file
+    - f = open("file.txt", mode='a')
+- Flush the contents of a file
+    - f.flush()
+-
