@@ -1,0 +1,5 @@
+---
+jumphost:
+  device_type: linux
+  host: 10.9.18.11
+  username: sbheemanathini

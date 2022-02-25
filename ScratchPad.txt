@@ -36,7 +36,7 @@ Strings:
 - use repr() for internal representation of the string to Python
 - use .strip() to remove the leading and trailing whitespace
     - use .lstrip() or .rstrip() to strip the whitespace on left and right side
-- use .split(x) to divide the string into chunks at a point x
+- use .split(x) to divide/split the string into chunks at a point x
     - if x is not mentioned, it takes whitespace as a delimiter
     - .split("\n") to split on new lines
 - use special formatting techniques for banners and presentations
@@ -60,6 +60,8 @@ Files:
     - read by line
         - f.readline()
         - f.readlines() will read all the lines of the file in the form of a 'list'
+        - output = f.read()
+            - output.splitlines() will remove \n at the end
 - Close a file
     - f.close()
 - Use seek() operation to go to beginning of a file
@@ -74,4 +76,673 @@ Files:
     - f = open("file.txt", mode='a')
 - Flush the contents of a file
     - f.flush()
--
+- In Python, only Lists [] & Dictionaries {} are mutable
+    - they refer to the same identifier/ID/memory
+- Tuple ()
+    - basically a list that cannot be modified
+    - uses less memory
+- "x".join ()
+     - to join the string from the list with x as a separator
+- sys.argv
+    - using the 'import sys' library, sys.argv prints the arguments [provided when you run the program] as a list.
+    - 'arg-parse' and 'click' libraries will be of use in the programs.
+- Python linters
+    - Check the code quality [per convention], style, make program more readable
+    - Check for errors and flag the problems in the code
+    - Save debugging time
+    - pylint and pycodestyle are two popular linters
+        - use pip to install them
+    - how to use them: 
+        - pylint <x.py> | more 
+        - pycodestyle <x.py> | more
+
+Conditions:
+
+- if, else, elif conditions 
+- indentation is important
+
+Booleans:
+
+- True, False
+- Logical operators
+    - and 
+    - or 
+    - equal to ==
+    - >=
+    - <=
+    - not
+- In python, empty string/list/int is False
+- bool(x) 
+- Ternary operator
+    - a = 'whatever' if True else 'something'
+    - shorthand notation for if else statements
+- None
+    - type(None) = NoneType
+    - bool(None) = False 
+    - default return value for all python functions that doesn't have explicit statements
+
+For loops:
+
+- for x in some_container:
+    code_block
+- Each time through the loop, loop variable 'x' gets one element from the container
+- Standard exit condition: The container runs out of things inside it.
+- some_container can be a list, tuple, dict 
+- Enumerate
+    - provides index along with the value in the container
+    - for x in enumerate(some_container):
+        print (x)
+    - output is a tuple 
+    - assign variables
+        - for x,y in enumerate(some_container):
+            print(x)
+            print(y)
+            print('-'*30)
+- Break & Continue
+    - Break the loop until a condition is matched 
+    - Continue is opposite of break, when continue condition is matched, it will jump back to the for loop
+    - pass is Noop statement, it'll do nothing. 
+- Range 
+    - list(range(x)) 
+        - output = [0,1,....,x-1]
+    - use range in for loops 
+
+While loops:
+
+- while expression:
+    code_block
+- Enters code block if expression evaluates to True 
+- Remains in code block as long as the expresssion remains True
+- Standard exit condition: The while expression is no longer True 
+- Chances of running into infinite loops, in such cases, use break 
+
+Loops miscellaneous:
+- Reduce the usage of indices in a loop condition
+- Heavy use of indices makes code much harder to read 
+
+Dictionaries:
+
+- mapping of key and it's corresponding value 
+- key:value pair, {}
+    - var['x'] = 'y' | var = {'x':'y'}
+- Dictionaries are mutable similar to lists
+- Methods
+    - .get [gives value of the key]
+    - .pop [removes a key and its corresponding value from dict]
+    - .update [update any key:value pair in 1st dict from 2nd dict]
+    - .values() [get value for the key(s)]
+    - .items() [to extract key and values in for loops]
+
+Sets:
+- Eliminate the duplicate items in the list 
+- uses {} similar to dictionaries 
+- Use set union to get unique elements in x number of the set(s):
+    - set_1 | set_2 [Logical OR]
+- Use set intersection to get only matching elements in the set(s)
+    - set_1 & set_2
+    - set_1.intersection(set_2)
+- Unique elements in both the set(s):
+    - set_1 - set_2
+    - set_1.difference(set_2)
+- Symmetric difference is exclusive OR
+    - set_1 ^ set_2 
+    - set_1.symmetric_difference(set_2)
+
+Exceptions:
+
+try:
+    code_block
+except <error>:
+    code block 
+
+Clauses: 
+
+- raise 
+    - output the actual error in the exception code block
+- finally:
+    - execute codeblock irrespective of an exception
+- Exception
+    - wild card for errors to use it in the exception block 
+
+Regular expressions:
+- import re 
+- re.search(r".",<var>).group(x)
+- re.search(r".",<var>).groups()
+- . + * ^ $ \s \S \d \D [] ()
+- use raw strings to turn off python special meaning of chars 
+- ?P [for tagging the value, essentially a key]
+    - re.search(r"(?P<tag>.*)",<var>).groupdict()
+- flags=re.M [for multiline search]
+- flags=re.DOTALL [all lines]
+- flags=re.I [ignore capital letters in the expression]
+- re.split() [split the lines based on the pattern]
+- re.sub() [substitute]
+- re.findall() [find a specific pattern that shows up multiple times]
+
+Functions:
+
+- Functions always have a return value, if not specified, it is None 
+- () will invoke the function 
+- Positional vs Named arguements
+- Passing the list as a single arguement
+- (*<list) passes the arguements in a sequential manner 
+- dictionaries can be used to pass arguements as well 
+- variables defined in the function are local to the function 
+- Functions will give you one level of reusability
+- Classes with methods will give you a second level of reusability 
+    - Pass shared information
+    - class MyClass(object):
+        def _init_(self):
+    - No _ as word separators
+- Python function (.py)can be used as a module so you can import and use it
+    - sys.path will look into the current home directory first
+    - Make sure program/filename do not interfere with the module names
+- from <module> import <func>
+    func(x)
+- from <module>
+    module.func(x)
+- Lambda function:
+    - def my_func(x):
+        return x**2
+      print(my_func(2)
+    - f=lambda x: x**2
+        print(f(2))
+
+Debugging:
+
+- Python Debugger (pdb)
+- import pdb
+- pdb.set_trace() sets the break points 
+
+-----------------------------------------------------
+
+Paramiko:
+- Standard SSH library
+
+Netmiko:
+- Multi-vendor networking library based on paramiko 
+- When SSH connection is established, it turn off paging and set the terminal width appropriately
+- global_delay_factor allocates additional time or delays or timesleeps to make the code more reliable and wait for the output
+
+Jinja2:
+
+- Configuration templates
+    - For each row in a variable, there will be a corresponding output file. 
+    - variable is designated within a {{var}}
+    - import jinja2 
+    - define the variable
+    - define the var_template
+    - template = jinja2.Template(var_template)
+    - print(template.render(var))
+
+- template_file = 'file.j2'
+    - with open(template_file) as f:
+        var_template = f.read()
+    - template = jinja2.Template(var_template)
+    - print(template.render(var))
+
+- jinja2 control structure 
+- specify end for 'if' and 'for' loops
+    - {% for x in var %}
+    - {% endfor %}
+    - {% if %}
+    - {% endif %}
+- use {%- to remove the trailing space 
+
+- using CSV 
+    - import csv 
+    - csv_file = "file.csv"
+    - with open(file.csv) as f:
+        read_csv = csv.DictReader(f)
+        for var in read_csv [for reach row in the CSV file, var is a dict of key value pairs]
+    - reconstruct the data structure to a list if needed
+            x = var['x']
+            x = x.split()
+            var['x']= x
+    - template_file = 'file.j2'
+    - with open(template_file) as f:
+        var_template = f.read()
+    - template = jinja2.Template(var_template)
+    - print(template.render(var))
+
+- YAML
+    - computer -> computer interaction
+    - readability 
+    - used in other languages such as Ansible, Salt, etc. 
+    - starts with --- 
+
+- import yaml 
+    - filename = "file.yml"
+    - with open(filename) as f:
+    -   output = yaml.load(f) 
+- print()
+- print(output)
+- print()
+
+- How to represent data types using yaml 
+    - list 
+        ---
+        - x
+        - y
+        - z
+    - dict  
+        ---
+        x: a
+        y: b 
+        z: c 
+    - string 
+        ---
+        x: "{Hello"
+    - Boolean 
+        ---
+        x: True 
+        y: true 
+        z: yes
+        w: no 
+        v: on
+        u: off  
+    - Integer 
+        ---
+        x: 100 
+    - Nested dict 
+        ---
+        rtr1: 
+          ip_addr: 1.1.1.1
+          username: admin
+          password: admin 
+          device_type: fortinet 
+    - Compressed list 
+        ---
+        x: [1.1.1.1,2.2.2.2]
+    - Compressed dict
+        ---
+        y: {ip_addr: 1.1.1.1}
+
+- Use pretty print module to represent the YAML file clearly
+-   from pprint import pprint 
+    import yaml 
+    filename = "file.yml"
+    with open(filename) as f:
+        output = yaml.load(f) 
+    print()
+    pprint(output)
+    print()
+
+- Use python to write to a YAML file 
+    import yaml 
+    my_dict = {
+        'x' : {'ip_address': '1.1.1.1',
+                'username': 'admin'}
+    }
+    filename = "output.yml"
+    with open(filename,"w") as f:
+        output = yaml.dump(my_dict, f, default_flow_style=False)
+
+- default_flow_style will enable compressed lists and dict and output looks similar to a python representation, if disabled, outputs lists and dicts in a uncompressed form. 
+
+- Without default_flow_style mentioned, it will provide the output in a compressed form of yaml representation. 
+
+- JSON: Java script object notation
+- Write to a JSON file 
+    - import json 
+    - print(json.dumps(var))
+    - with open("my_file.json","w") as f:
+        json.dump(my_dict,f,indent=4)
+
+- Read from a JSON file 
+    - import json
+    - from pprint import pprint 
+    - filename = "my_file.json"
+    - with open(filename) as f:
+        output = json.load(f) 
+    - pprint(output)
+    
+- python uses single quotes, JSON uses double quotes. 
+- Boolen representation in JSON is all lowercase: false, true 
+-  JSON is used by a lot of APIs in the networking devices
+
+
+- Module is a python file 
+    e.g. >>> import re 
+         >>> re.__file__ [gives the path of the re.py]
+         >>> help(re.x)
+         >>> from re import search, findall 
+         >>> import sys
+         >>> sys.path 
+         >>> from pprint import pprint 
+         >>> pprint(sys.path) [gives files python looks for that module/package]
+
+- Modify sys.path 
+    - env | grep PYTH 
+    - unset PYTHONPATH
+    - export PYTHONPATH=/usr/local/yyy
+- Package is a directory of related python files
+- .egg are bundled files/packages
+- sys.path can be controlled by the PYTHONPATH ENV variable 
+
+Package Management: 
+- pip to install package/modules
+- pip download the dependencies and install the packages 
+    - [pypi.python.org]]
+- install a specific version   
+    - e.g. pip install netmiko==2.0.1
+    - >>> netmiko.__version__ 
+- upgrade the package
+    - pip install --upgrade netmiko
+    - upgrades the dependences as well 
+- 'pip list' will give all the packages installed 
+- uninstall 
+    - pip uninstall netmiko 
+- install a git repo 
+    - pip install <git_url>
+- To eliminate any discrepancies between python and pip, use:
+    - python -m pip install netmiko 
+    - this way, packages will be installed in the sys.path python is using. 
+
+
+Virtual Environment: 
+
+- To test the packages, dependencices, and python req
+-   cd VENV/
+    virtualenv-3.6 -p /usr/bin/python36 test_venv
+    source test_venv/bin/activate
+    which python 
+- exit out of venv 
+    - deactivate 
+################################################################
+
+https://pythontutor.com/
+
+In the Python Tutor, global variables (including functions and classes) are shown in the global frame. Remember that if you define a variable outside a function, you’ve created a global variable. Any variables you create inside a function are local variables--and are shown, in the Python Tutor, inside their own shaded boxes. Simple data structures, such as integers and strings, are shown alongside the variables pointing to them, whereas lists, tuples, and dicts are shown in graphical format.
+
+
+:= is called walrus operator. 
+
+################################################################
+
+Create a virtual environment:
+1. Create a VENV directory
+2. Check the python version by running '/usr/local/bin/python3.9' [use tab to extend]
+3. Grab the path and run command: 
+    <path> -m venv <venv_name>
+4. Run source to create a venv
+    source <venv_name>/bin/activate 
+5. To exit out of the venv, run deactivate:
+    deactivate
+
+------------------------------------------------------------------------------------
+sbheemanathini@sbheema-ltmljix Kirk Bryers % mkdir VENV
+sbheemanathini@sbheema-ltmljix Kirk Bryers % cd VENV 
+sbheemanathini@sbheema-ltmljix VENV % /usr/local/bin/python3.9       
+Python 3.9.7 (default, Sep  3 2021, 12:37:55) 
+[Clang 12.0.5 (clang-1205.0.22.9)] on darwin
+Type "help", "copyright", "credits" or "license" for more information.
+>>> quit()
+sbheemanathini@sbheema-ltmljix VENV % /usr/local/bin/python3.9 -m venv sb_venv
+sbheemanathini@sbheema-ltmljix VENV % source sb_venv/bin/activate
+(sb_venv) sbheemanathini@sbheema-ltmljix VENV % which python
+/Users/sbheemanathini/Documents/Code Space/Python/Kirk Bryers/VENV/sb_venv/bin/python
+(sb_venv) sbheemanathini@sbheema-ltmljix VENV % 
+------------------------------------------------------------------------------------
+
+################################################################
+
+PIP 
+
+1. Check the packages installed in the venv by running: 
+    pip list 
+2. Upgrade pip to get rid of the warning
+    pip install --upgrade pip
+3. Install netmiko
+    pip install netmiko
+    pip list 
+4. Install libraries
+    pip install black 
+    pip install pylama 
+    pip install ipdb 
+------------------------------------------------------------------------------------
+(sb_venv) sbheemanathini@sbheema-ltmljix VENV % pip list
+Package           Version
+----------------- -------
+appnope           0.1.2
+asttokens         2.0.5
+backcall          0.2.0
+bcrypt            3.2.0
+black             22.1.0
+cffi              1.15.0
+click             8.0.3
+cryptography      36.0.1
+decorator         5.1.1
+executing         0.8.2
+future            0.18.2
+ipdb              0.13.9
+ipython           8.0.1
+jedi              0.18.1
+matplotlib-inline 0.1.3
+mccabe            0.7.0
+mypy-extensions   0.4.3
+netmiko           3.4.0
+ntc-templates     3.0.0
+paramiko          2.9.2
+parso             0.8.3
+pathspec          0.9.0
+pexpect           4.8.0
+pickleshare       0.7.5
+pip               21.3.1
+platformdirs      2.4.1
+prompt-toolkit    3.0.26
+ptyprocess        0.7.0
+pure-eval         0.2.2
+pycodestyle       2.8.0
+pycparser         2.21
+pydocstyle        6.1.1
+pyflakes          2.4.0
+Pygments          2.11.2
+pylama            8.3.7
+PyNaCl            1.5.0
+pyserial          3.5
+scp               0.14.2
+setuptools        57.4.0
+six               1.16.0
+snowballstemmer   2.2.0
+stack-data        0.1.4
+tenacity          8.0.1
+textfsm           1.1.2
+toml              0.10.2
+tomli             2.0.0
+traitlets         5.1.1
+typing_extensions 4.0.1
+wcwidth           0.2.5
+------------------------------------------------------------------------------------
+Device Type:
+
+Ref: 
+https://github.com/ktbyers/netmiko/blob/develop/PLATFORMS.md
+https://github.com/ktbyers/netmiko/blob/develop/netmiko/ssh_dispatcher.py
+
+ValueError: Unsupported 'device_type' currently supported platforms are: 
+a10
+accedian
+adtran_os
+alcatel_aos
+alcatel_sros
+allied_telesis_awplus
+apresia_aeos
+arista_eos
+aruba_os
+aruba_osswitch
+aruba_procurve
+avaya_ers
+avaya_vsp
+broadcom_icos
+brocade_fastiron
+brocade_fos
+brocade_netiron
+brocade_nos
+brocade_vdx
+brocade_vyos
+calix_b6
+cdot_cros
+centec_os
+checkpoint_gaia
+ciena_saos
+cisco_asa
+cisco_ftd
+cisco_ios
+cisco_nxos
+cisco_s300
+cisco_tp
+cisco_wlc
+cisco_xe
+cisco_xr
+cloudgenix_ion
+coriant
+dell_dnos9
+dell_force10
+dell_isilon
+dell_os10
+dell_os6
+dell_os9
+dell_powerconnect
+dlink_ds
+eltex
+eltex_esr
+endace
+enterasys
+ericsson_ipos
+extreme
+extreme_ers
+extreme_exos
+extreme_netiron
+extreme_nos
+extreme_slx
+extreme_vdx
+extreme_vsp
+extreme_wing
+f5_linux
+f5_ltm
+f5_tmsh
+flexvnf
+fortinet
+generic
+generic_termserver
+hp_comware
+hp_procurve
+huawei
+huawei_olt
+huawei_smartax
+huawei_vrpv8
+ipinfusion_ocnos
+juniper
+juniper_junos
+juniper_screenos
+keymile
+keymile_nos
+linux
+mellanox
+mellanox_mlnxos
+mikrotik_routeros
+mikrotik_switchos
+mrv_lx
+mrv_optiswitch
+netapp_cdot
+netgear_prosafe
+netscaler
+nokia_sros
+oneaccess_oneos
+ovs_linux
+paloalto_panos
+pluribus
+quanta_mesh
+rad_etx
+raisecom_roap
+ruckus_fastiron
+ruijie_os
+sixwind_os
+sophos_sfos
+supermicro_smis
+tplink_jetstream
+ubiquiti_edge
+ubiquiti_edgerouter
+ubiquiti_edgeswitch
+ubiquiti_unifiswitch
+vyatta_vyos
+vyos
+watchguard_fireware
+yamaha
+zte_zxros
+(sb_venv) sbheemanathini@sbheema-ltmljix Course_exercises % 
+
+################################################################
+
+Configure pylama to check the files in the dir automatically. 
+
+1. Add the following info to 'setup.cfg'
+[metadata]
+license_file = LICENSE
+
+[pylama]
+linters = mccabe,pep8,pyflakes
+ignore = D203,C901
+skip = .tox/*
+
+[pylama:pep8]
+max_line_length = 100
+
+2. Run the command:
+pylama -o ./setup.cfg ./<dir>
+
+##################################################################
+
+Netmiko API documentation
+
+https://ktbyers.github.io/netmiko/#api-documentation
+
+##################################################################
+
+Parsing problem:
+
+SSH channel can output big string blocks which becomes difficult to get the specific output. You can use regex aka screen scraping to get what you need, however, it is cumbersome. To get more structrured data, use the following workarounds:
+    - API to get the output in JSON/XML form 
+    - Parser to convert string data into structured data
+        - TextFSM [Regex + Finite state machine][https://github.com/networktocode/ntc-templates/tree/master/ntc_templates/templates]
+        - Genie [https://developer.cisco.com/docs/genie-docs/]
+        - TTP 
+
+(sb_venv) sbheemanathini@sbheema-ltmljix Course_exercises % pip list | grep pyats
+pyats                        22.1
+pyats.aereport               22.1
+pyats.aetest                 22.1
+pyats.async                  22.1
+pyats.connections            22.1
+pyats.datastructures         22.1
+pyats.easypy                 22.1
+pyats.kleenex                22.1
+pyats.log                    22.1
+pyats.reporter               22.1
+pyats.results                22.1
+pyats.tcl                    22.1
+pyats.topology               22.1
+pyats.utils                  22.1
+(sb_venv) sbheemanathini@sbheema-ltmljix Course_exercises % pip list | grep genie
+genie                        22.1
+genie.libs.clean             22.1
+genie.libs.conf              22.1
+genie.libs.filetransferutils 22.1
+genie.libs.health            22.1
+genie.libs.ops               22.1
+genie.libs.parser            22.1
+genie.libs.sdk               22.1.2
+(sb_venv) sbheemanathini@sbheema-ltmljix Course_exercises % pip list | grep ttp  
+aiohttp                      3.8.1
+aiohttp-swagger              1.0.16
+ttp                          0.8.4
+(sb_venv) sbheemanathini@sbheema-ltmljix Course_exercises % 
+
+##################################################################
+
+time python <.py> 
+
+- provides the total time for the execution 
+
+# If using send_command_timing, always set fast_cli=False
